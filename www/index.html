@@ -22,11 +22,13 @@ position: relative;
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onFailure, {timeout: 5000, enableAccuracy: false});
+        alert("dev ready");
     }
 
     function onSuccess(position){
         var coords = position.coords;
         initMap(coords.latitude, coords.longitude);
+        alert(coords);
     }
     
     function initMap(lat, long){
