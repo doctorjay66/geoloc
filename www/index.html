@@ -27,8 +27,8 @@ position: relative;
 
     function onSuccess(position){
         var coords = position.coords;
-        initMap(coords.latitude, coords.longitude);
         alert(coords);
+        initMap(coords.latitude, coords.longitude);        
     }
     
     function initMap(lat, long){
