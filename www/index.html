@@ -19,6 +19,7 @@ position: relative;
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD--Vr_RD_29h6L4Ccf6BWROAWR5A5eH8c&sensor=true"></script>
 <script type="text/javascript">
     var currentHeading = null;
+    var coords = null;
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onFailure, {timeout: 5000, enableAccuracy: false});
@@ -26,9 +27,14 @@ position: relative;
     }
 
     function onSuccess(position){
-        var coords = position.coords;
-        alert(coords.latitude);
-        initMap(coords.latitude, coords.longitude);        
+        coords = position.coords;  
+        alert("on succ");
+        //initMap(coords.latitude, coords.longitude);        
+    }
+  
+    function callInitMap() {
+      alert(coords.latitude);
+      initMap(coords.latitude, coords.longitude);
     }
     
     function initMap(lat, long){
@@ -50,6 +56,9 @@ position: relative;
         alert(error.message);
     }
 </script>
+<div>
+  <input type="button" value="Refresh Orientation" onclick="callInitMap();">
+</div>
 </body>
 </html>
 
